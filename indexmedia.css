@@ -1,0 +1,123 @@
+/* Global settings */
+body {
+    background-color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Container adjustments for smaller screens */
+.headercontainer{
+    width: 100%;
+    height: 12%;
+    overflow-x: hidden;
+}
+
+/* Media queries for mobile (Samsung M52 and similar) */
+@media screen and (max-width: 1080px) {
+    
+    /* Header adjustments */
+    .header {
+        top: 0px;
+        left: 15px;
+        font-size: 18px; /* Adjust the font size for mobile */
+    }
+    
+    .headerform {
+        top: 70px;
+        left:  0px;
+    }
+    
+    .headerform li a {
+        padding: 7px;
+        font-size: 15px;
+        padding-left: 0px;
+    }
+
+    /* Infocenter adjustments */
+    .infocenter {
+        position: relative;
+        top: 450px;
+        height: auto;
+        padding-bottom: 800px;
+    }
+    
+    .infocenter h1 {
+        font-size: 36px; /* Smaller font size for mobile */
+    }
+    
+    .infocenter h2 {
+        font-size: 20px;
+    }
+
+    /* About us adjustments */
+    .aboutus {
+        margin: 10px 0;
+    }
+    
+    .content {
+        font-size: 12px;
+        padding-right: 10px;
+    }
+    
+    .aboutimg {
+        right: 10px;
+        top: auto;
+    }
+
+    /* Executive body adjustments */
+    .Executive {
+        height: auto;
+        position: relative;
+        top: 42%;
+    }
+
+    .pinmg{
+        left: 20%;
+        top:45%;
+        font-size: 12px;
+    }
+    .hodimg{
+        position: relative;
+        left: 20%;
+        top: 50%;
+        font-size: 12px;
+    }
+    
+    .pinmg h1, .hodimg h1 {
+        left: 0;
+    }
+
+    /* Awards section adjustments */
+    .awards, .awphoto{
+        font-size: 12px;
+        position: relative;
+        top: 460px;
+    }
+    .awardtext{
+        font-size: 12px;
+    }
+    /* Footer adjustments */
+    .footercontainer{
+        overflow-x: hidden;
+        display: none;
+    }
+    .footerimg {
+        overflow-x: hidden;
+        display: none;
+    }
+
+    .quiclink {
+        overflow-x: hidden;
+        display: none;
+    }
+
+    .quiclink li a {
+        overflow-x: hidden;
+        display: none;
+    }
+
+    .info {
+        overflow-x: hidden;
+        display: none;
+    }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="login.css">
+    <title>User Registration & Login</title>
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            // Toggle between login and register forms
+            if (loginForm.style.display === "block" || loginForm.style.display === "") {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+            } else {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+            }
+        }
+
+        // Initialize to show login form on page load
+        window.onload = function() {
+            const storedEmail = localStorage.getItem('userEmail');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const userInfo = document.getElementById('userInfo');
+            
+            if (storedEmail) {
+                // If there's a stored email, show user info
+                showUserEmail(storedEmail);
+            } else {
+                // Otherwise, show the login form
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                userInfo.style.display = "none"; // Hide user info initially
+            }
+        };
+
+        // Handle form submission for login
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(event.target);
+            const data = {
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Login failed: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(result => {
+                alert(result);
+                event.target.reset(); // Clear the form only after a successful login
+                // Store email in localStorage and show user info
+                showUserEmail(data.email);
+                localStorage.setItem('userEmail', data.email); // Store email
+            })
+            .catch(error => {
+                alert(error.message); // Show error message
+                console.error('Error:', error);
+            });
+        }
+
+        // Function to display user email and logout option after login
+        function showUserEmail(email) {
+            const emailDisplay = document.getElementById('userEmail');
+            const logoutLink = document.getElementById('logoutOption');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const userInfo = document.getElementById('userInfo');
+
+            emailDisplay.textContent = email; // Set email
+            emailDisplay.style.display = "inline"; // Show email
+            logoutLink.style.display = "inline"; // Show logout option
+            loginForm.style.display = "none"; // Hide login form
+            registerForm.style.display = "none"; // Hide register form
+            userInfo.style.display = "block"; // Show user info
+        }
+
+        // Handle logout action
+        function handleLogout() {
+            // Perform any logout-related actions here
+            alert("Logging out...");
+
+            // Clear stored email from localStorage
+            localStorage.removeItem('userEmail');
+
+            // Hide the email and logout elements
+            document.getElementById('userEmail').style.display = "none";
+            document.getElementById('logoutOption').style.display = "none";
+            document.getElementById('userInfo').style.display = "none"; // Hide user info
+
+            // Show login form again
+            document.getElementById('loginForm').style.display = "block"; // Show login form
+        }
+
+        // Handle form submission for registration
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(event.target);
+            const data = {
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Registration failed: ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(result => {
+                alert(result);
+                event.target.reset(); // Clear the form only after a successful registration
+                toggleForms(); // Switch back to the login form
+            })
+            .catch(error => {
+                alert(error.message); // Show error message
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div class="headercontainer">
+        <div class="header">
+            <h1>IETE</h1>
+        </div>
+        <div class="headerform">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="membership.html">MEMBERSHIP ID</a></li>
+                <li><a href="project.html">PROJECTS</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="#">WORKSHOP</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- User info (Email and Logout) -->
+    <div id="userInfo" style="display: none; text-align: center; margin-top: 20px;">
+        <span id="userEmail" style="color: rgb(0, 0, 0);"></span>
+        <a id="logoutOption" href="#" onclick="handleLogout()" style="color: rgb(0, 0, 0);">Logout</a>
+    </div>
+
+    <div class="box">
+        <!-- Login Form -->
+        <form id="loginForm" method="post" action="" onsubmit="handleLogin(event)">
+            <h1>LOGIN</h1>
+            <div class="login">
+                <label for="email">Email ID</label><br>
+                <input type="email" id="email" name="email" placeholder=" Email/ Phone Number" required><br><br>
+                
+                <label for="password">Password</label><br>    
+                <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+                
+                <input type="submit" id="button" name="button" value="Sign in"><br><br>
+                <a href="#" onclick="toggleForms()" style="color: rgb(0, 0, 0);">Don't have an account? Create One!</a><br><br>
+            </div>
+        </form>
+
+        <!-- Registration Form -->
+        <form id="registerForm" method="post" action="" onsubmit="handleRegister(event)" style="display:none;">
+            <div class="register">
+                <h1>REGISTER</h1>
+                <label for="email">Enter the Email ID</label><br>
+                <input type="email" name="email" placeholder="Email" required><br><br>
+                <label for="password">Create Password</label><br>
+                <input type="password" name="password" placeholder="Password" required><br><br>
+                <button type="submit">Register</button><br><br>
+                <a href="#" onclick="toggleForms()" style="color: rgb(0, 0, 0);">Already have an account? Login!</a>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="footercontainer">
+        <div class="footerimg">
+            <img src="img/logo.jpg">
+            <h1>The Institution of Electronics and Telecommunication Engineers (IETE) is India’s leading recognised professional society devoted to the advancement of Science and Technology of Electronics, Telecommunication & IT. Founded in 1953</h1>
+        </div>
+        <div class="footer">
+            <h1>QUICK LINK</h1>
+        </div>
+        <div class="quiclink">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="membership.html">MEMBERSHIP ID</a></li>
+                <li><a href="project.html">PROJECTS</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="">WORKSHOP</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+            </ul>
+        </div>
+        <div class="info">
+            <h1>Contact details</h1>
+            <h2>Email Address</h2>
+            <h2>sarathparthi19@gmail.com</h2>
+            <h2>Phone Number</h2>
+            <h2>9384427133</h2>
+        </div>
+    </div>
+    
+
+</body>
+</html>

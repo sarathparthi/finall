@@ -1,0 +1,152 @@
+
+#userEmail {
+    font-size: 20px;
+    display: none;
+    position: relative;
+    top: 212px;
+    z-index: 1;
+    padding-right: 20px;
+}
+
+#logoutOption {
+    font-size: 20px;
+    color: white;
+    display: none;
+    text-decoration: none;
+    position: relative;
+    top: 212px;
+    z-index: 1;
+}
+
+#logoutOption:hover {
+    text-decoration: underline;
+}
+
+/* Form Box Styling */
+.box{
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 10px;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    border-width: 4px;
+    position: relative;
+    top: 150px;
+    z-index: -1;
+}
+.box h1{
+    position: relative;
+    left: 145px;
+}
+
+.login{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-size: 22px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.login label{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
+.login input{
+    width: 70%;
+    height: 35px;
+    border-radius: 40px;
+    background: transparent;
+    border: 2px solidrgba(255,255,255,.2);
+    outline: none;
+}
+.login input::placeholder{
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    position: relative;
+    left: 10px;
+}
+
+
+.register input{
+    width: 70%;
+    height: 35px;
+    border-radius: 40px;
+    background: transparent;
+    border: 2px solidrgba(255,255,255,.2);
+    outline: none;
+    position: relative;
+    left: 60px;
+}
+.register input::placeholder{
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    position: relative;
+    left: 10px;
+}   
+.register label{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    position: relative;
+    left: 140px;
+}
+.register button{
+    position: relative;
+    left: 170px;
+}
+.register a{
+    position: relative;
+    left: 90px;
+}
+
+/*-----------------footer-----*/
+.footerimg{
+    position: relative;
+    left: 50px;
+    top: 20px;
+}
+.footerimg h1{
+    color: aliceblue;
+    margin-right: 950px;
+    font-size: 18px;
+    text-align: justify;
+}
+.quiclink{
+    color: aliceblue;
+    display: flex;
+    position: absolute;
+    left: 850px;
+    top: 60px;
+}
+.quiclink li{
+    display:block;
+}
+.quiclink li a{
+    text-decoration: none;
+    color: aliceblue;
+    padding-bottom: 1px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.footer{
+    color: aliceblue;
+    position: relative;
+    top: -200px;
+    left: 850px;
+    font-size: 12px;   
+}
+.info{
+    color: aliceblue;
+    position: absolute ;
+    font-size: 12px;    
+    top: 10px;
+    left: 1200px;
+    padding: 0px;
+}
+.footercontainer{
+    background-color: rgb(128, 128, 128);
+    width: 1700px;
+    height: 250px;   
+    position: absolute;
+    top: 800px;
+}

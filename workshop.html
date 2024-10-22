@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Cards</title>
+<style>
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to a new row */
+  justify-content: center; /* Center the cards horizontally */
+  max-width: 960px; /* Maximum width for the container */
+  width: 100%; /* Full width of the viewport */
+  padding: 10px; /* Padding for the container */
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px; /* Space between cards */
+  width: calc(33.333% - 20px); /* Width for three cards per row minus margin */
+  box-sizing: border-box; /* Include padding and border in element's total width */
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 15px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* One card per row on very small screens */
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511633041373-394852ebcf76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Cheetah" class="image">
+    <div class="content">
+      <h2>Cheetah</h2>
+      <p>The Cheetah is a large cat native to Africa and central Iran. It is the fastest land animal, capable of running at 80 to 128 km/h (50 to 80 mph).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1591641681592-ea0d3f33f1d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="Lion" class="image">
+    <div class="content">
+      <h2>Lion</h2>
+      <p>The lion is a carnivorous mammal that belongs to the family Felidae. It is one of the five big cats in the genus Panthera and a member of the family Felidae.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511633041373-394852ebcf76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Mandrill" class="image">
+    <div class="content">
+      <h2>Mandrill</h2>
+      <p>The Mandrill is a primate of the Old World monkey family. It is one of the two species of mandrills, the other being the drill.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511633041373-394852ebcf76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="White Tiger" class="image">
+    <div class="content">
+      <h2>White Tiger</h2>
+      <p>The White Tiger is a rare variant of the Bengal tiger. It is a carnivorous mammal that belongs to the family Felidae.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511633041373-394852ebcf76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Leopard" class="image">
+    <div class="content">
+      <h2>Leopard</h2>
+      <p>The leopard is a carnivorous mammal that belongs to the family Felidae. It is one of the five big cats in the genus Panthera and a member of the family Felidae.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511633041373-394852ebcf76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Jaguar" class="image">
+    <div class="content">
+      <h2>Jaguar</h2>
+      <p>The jaguar is a carnivorous mammal that belongs to the family Felidae. It is one of the five big cats in the genus Panthera and a member of the family Felidae.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
